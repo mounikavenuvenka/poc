@@ -1,0 +1,13 @@
+server:
+  port: 8083
+zuul:
+  routes:
+   job-service:
+      path: /poc/**
+      service-id: job-service
+      strip-prefix: true
+eureka:  instance:    hostname: localhost
+  client:    register-with-eureka: true
+    fetch-registry: true
+    service-url:      defaultZone: http://localhost:8081/eureka
+spring:  application:    name: zuul-gateway       
